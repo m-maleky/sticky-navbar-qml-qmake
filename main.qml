@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 
 Window {
+
     id: root
     minimumWidth: 360
     width: 360
@@ -61,33 +62,34 @@ Window {
                         spacing: 8
                         padding: 10
                         id: headerButtonsRow
+
+                        HeaderButton{
+                            textContent: myString()
+                            unread:"12"
+                            active:false
+                        }
                         HeaderButton{
                             textContent: "All"
-                            backgroundWidth:55
                             unread:"12"
                             active:true
                         }
                         HeaderButton{
                             textContent: "All"
-                            backgroundWidth:55
                             unread:"0"
                             active:false
                         }
                         HeaderButton{
                             textContent: "Important"
-                            backgroundWidth:120
                             unread:"0"
                             active:false
                         }
                         HeaderButton{
                             textContent: "Important"
-                            backgroundWidth:120
                             unread:"5"
                             active:false
                         }
                         HeaderButton{
                             textContent: "Important"
-                            backgroundWidth:120
                             unread:"0"
                             active:false
                         }

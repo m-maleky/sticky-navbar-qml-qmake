@@ -1,6 +1,7 @@
+#include "elements.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +17,10 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
+
+    Elements TT;
+    engine.rootContext()->setContextObject(&TT);
+
     engine.load(url);
 
     return app.exec();

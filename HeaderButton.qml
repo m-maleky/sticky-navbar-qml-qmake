@@ -2,13 +2,17 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 Button {
+
+    id:root
+    width:unread=="0" ? backgroundWidth : backgroundWidth + 30
+    height:40
+
     property string textContent : "none"
-    property int backgroundWidth : 50
+    property int backgroundWidth : headerButtonTitle.width + 33
     property string unread:"0"
     property bool active:false
     property color activeColor: "white"
     property color unActiveColor: "#63606d"
-    id:root
 
     MouseArea{
         hoverEnabled: true
@@ -29,6 +33,7 @@ Button {
         anchors.centerIn: root
         spacing: 10
         Text {
+            id:headerButtonTitle
             height:parent.height
             text: textContent
             font.pointSize: 14
@@ -55,12 +60,13 @@ Button {
         }
     }
     background: Rectangle {
-        implicitWidth: unread=="0" ? backgroundWidth : backgroundWidth + 30
-        implicitHeight: 40
+//        implicitWidth: unread=="0" ? backgroundWidth : backgroundWidth + 30
+//        implicitHeight: 40
         border.color: root.down || !active ? unActiveColor : activeColor
         color:'black'
         border.width: 1
         radius: height/2
     }
 }
+
 
